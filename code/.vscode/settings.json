@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "menu.h": "c",
+        "time.h": "c",
+        "utils.h": "c",
+        "stdio.h": "c",
+        "controller.h": "c",
+        "stdlib.h": "c"
+    }
+}
