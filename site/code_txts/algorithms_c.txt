@@ -33,10 +33,10 @@ void bubble_sort(int v[], struct counter *c) {
     int aux, swapped;
 
     for (int i = 1; i < N ; i++) {
+        swapped = 0;
 
         for (int j = 1; j < N - i + 1; j++) {
 
-            swapped = 0;
             c->comparisons++;
 
             if (v[j] > v[j + 1]) {
@@ -109,6 +109,7 @@ void shell_sort(int v[], int k, struct counter *c) {
         aux = v[i];
         j = i;
 
+        // DECIDI NÃO CONTAR O CASO QUE SAI DO WHILE
         while (j > k && v[j - k] > aux ) {
             c->comparisons++;
 
@@ -199,13 +200,13 @@ void partition(int v[], int left, int right, int *pivo_pos, int pivo, struct cou
 
     while (i < j) {
 
-        c->comparisons++;
+        // DECIDI NÃO CONTAR O CASO EM QUE SAI DO WHILE
         while ((v[i] <= pivo) && (i < right)) {
             c->comparisons++;
             i++;
         }
 
-        c->comparisons++;
+        // DECIDI NÃO CONTAR O CASO EM QUE SAI DO WHILE
         while ((v[j] > pivo) && (j > left)) {
             c->comparisons++;
             j--;

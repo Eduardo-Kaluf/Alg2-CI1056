@@ -114,7 +114,7 @@
 
     
     <p>
-        &emsp;A implementação de tais algoritmos ocorreu de maneira concisa e prática. O modo de como cada um foi implementado não diferenciou de como foram passados em sala de aula, buscando manter o trabalho fidedigno com o que aprendemos.
+        &emsp;A implementação de tais algoritmos ocorreu de maneira concisa, e para este trabalho optei por não contar quando uma comparação da falso, isso pode ficar mais claro ao ver o código da “partition” e do “shell_sort”, pois ambos possuem duas condições de saída, sendo assim a contagem ficaria imprecisa. O modo de como cada um foi implementado não diferenciou de como foram passados em sala de aula, buscando manter o trabalho fidedigno com o que aprendemos.
         Para todo o caso, o vetor possui o espaço “[0]” reservado ao sentinela, assim até os algoritmos que não o utilizam foram adaptados para suportar esse tipo especifico de vetor.<br>
         &emsp;Um menu interativo para o usuário exibe as ações que podem ser tomadas dentro do programa, dando liberdade a testar de maneira livre e arbitraria. Uma das opções é um teste grande que exibirá a média de comparações e trocas de nossos algoritmos, que será utilizada como o nosso resultado final.
         Ao ser testado, o programa sempre exibirá um log do que está fazendo, deixando o usuário a par de suas ações. Além disso, um arquivo de teste em conjunto ao seu log final também estará disponível
@@ -136,13 +136,13 @@
         5. Conclusão
     </h2>
     <p>
-        &emsp;Sendo assim, ao analisar os resultados obtidos com os testes feitos, podemos concluir que de fato o ShellSort é superior ao QuickSort, obtendo uma quantidade muito inferior de comparações. Apesar disso, o QuickSort sempre apresentou a quantidade de trocas e um desvio padrão menor em relação ao Shell.<br>
-        &emsp;Quanto aos métodos implementados, no QuickSort a diferença não foi muito gritante para as trocas, com todos tendo em média a mesma quantidade. Para as comparações, escolher a mediana de 3 números aleatórios do vetor se mostrou o método mais eficiente.<br>
-        &emsp;Para o ShellSort, podemos observar que o método do próprio Shell se mostrou muito ineficiente, porém, quando olhamos para a sequencia de Sedgewick, ela tem a quantidade de comparações mais baixa, sendo um pouco melhor do que o método de Knuth neste contexto. Contudo, para as trocas,  Sedgewick foi superior. Independente de escolher o método de  Sedgewick, ou a  sequência de Knuth, eles sempre acabaram por dominar o QuickSort em questão de comparações.<br>
-        &emsp;Por fim, ao olharmos o BubbleSort, ele realizou em média 20 vezes mais comparações que o Quick e 40 vezes mais que o Shell. Já as trocas, foram 80 vezes mais que o Quick e 15 vezes mais que o Shell.<br>
+        &emsp;Sendo assim, ao analisar os resultados obtidos com os testes feitos, podemos concluir que de fato o ShellSort é superior ao QuickSort, obtendo uma quantidade inferior de comparações. Apesar disso, o QuickSort sempre apresentou a quantidade de trocas e um desvio padrão menor em relação ao Shell.<br>
+        &emsp;Quanto aos métodos implementados, no QuickSort a diferença não foi muito gritante para as trocas, com todos tendo em média a mesma quantidade. Para as comparações, curiosamente, escolher o primeiro elemento do vetor se mostrou o método mais eficiente.br>
+        &emsp;Para o ShellSort, podemos observar que o método do próprio Shell se mostrou muito ineficiente, porém, quando olhamos para a sequencia de Sedgewick, ela tem a quantidade de comparações mais baixa, sendo um pouco melhor do que o método de Knuth neste contexto. Contudo, para as trocas,  Sedgewick foi superior. Independente de escolher o método de Sedgewick, ou a sequência de Knuth, eles sempre acabaram por dominar o QuickSort em questão de comparações.<br>
+        &emsp;Por fim, ao olharmos o BubbleSort, ele realizou em média 45 vezes mais comparações que o Quick e 60 vezes mais que o Shell. Já as trocas, foram 100 vezes mais que o Quick e 15 vezes mais que o Shell.<br>
         &emsp;Quanto aos algoritmos de busca, como já era de se esperar, a busca binária é extremamente superior a busca sequencial, possuindo uma média de comparações 90 vezes menor.<br><br>
     
-        &emsp;Portanto, ao juntar todos esses dados, podemos concluir seguramente, quando tomando a quantidade de comparações como fato dominante, que o ShellSort é mais eficiente que o QuickSort.
+        &emsp;Portanto, ao juntar todos esses dados, podemos concluir seguramente, quando tomando a quantidade de comparações como fato dominante e dado a implementação utilizada no trabalho, que o ShellSort é mais eficiente que o QuickSort.
 
     </p>    
 

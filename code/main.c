@@ -43,6 +43,8 @@ int main() {
         case 0:
             break;
         case 1:
+            printf("GERANDO VETOR ALEATÓRIO...\n");
+
             generate_data(v);
             copy_array(v, w);
             print_half_array(v);
@@ -52,6 +54,8 @@ int main() {
             array_menu();
 
             scanf("%d", &array_method);
+
+            printf("IMPRIMINDO VETOR(ES)...\n");
 
             switch (array_method) {
                 case 1:
@@ -86,6 +90,8 @@ int main() {
             break;
         // Ordenar com o BubbleSort
         case 3:
+            printf("ORDENANDO COM BUBBLE SORT...\n");
+
             reset_counter(&c);
             
             copy_array(v, w);
@@ -104,14 +110,19 @@ int main() {
             reset_counter(&c);
             copy_array(v, w);
 
+            printf("ORDENANDO COM SHELL SORT, MÉTODO ");
+
             switch (sorting_method) {
                 case 1:
+                    printf("ORIGINAL...\n");
                     shell_original(w, &c);
                     break;
                 case 2:
+                    printf("SEDGEWICK...\n");
                     sedgewick_exponents(w, &c);
                     break;
                 case 3:
+                    printf("KNUTH...\n");
                     knuth_sequence(w, &c);
                     break;
                 default:
@@ -132,14 +143,19 @@ int main() {
             reset_counter(&c);
             copy_array(v, w);
 
+            printf("ORDENANDO COM QUICK SORT, PIVO: ");
+
             switch (sorting_method) {
                 case 1:
+                    printf("PRIMEIRO ELEMENTO...\n");
                     first_element_qs(w, 1, N, &c);
                     break;
                 case 2:
+                    printf("ELEMENTO ALEATÓRIO...\n");
                     random_element_qs(w, 1, N, &c);
                     break;
                 case 3:
+                    printf("ELEMENTO MEDIANO...\n");
                     median_element_qs(w, 1, N, &c);
                     break;
                 default:
@@ -163,6 +179,8 @@ int main() {
                 case 1:
                     scanf("%d", &key);
 
+                    printf("PROCURANDO ELEMENTO %d...\n", key);
+
                     index = linear_search(v, key, &c);
 
                     found_element(index);
@@ -182,6 +200,8 @@ int main() {
                     scanf("%d", &key);
 
                     generic_sort(w, N);
+
+                    printf("PROCURANDO ELEMENTO %d...\n", key);
 
                     index = binary_search(w, key, 1, N, &c);
 
@@ -213,6 +233,8 @@ int main() {
             struct counter counters[N_ALGS][N_TESTES];
             struct stats average[N_ALGS], variance[N_ALGS], standard_deviations[N_ALGS];
             struct counter sum[N_ALGS];
+
+            printf("REALIZANDO O TESTE MIL VEZES...\n");
 
             fill_counter_matrix(counters);
 
