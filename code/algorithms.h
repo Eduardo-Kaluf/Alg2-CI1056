@@ -47,12 +47,14 @@ void random_element_qs(int v[], int left, int right, struct counter *c);
 // QuickSort que utiliza a mediana de 3 elementos aleatórios do vetor como Pivo
 void median_element_qs(int v[], int left, int right, struct counter *c);
 
-/*
- * Algoritmo utilizado para particionar um vetor
- * QuickSort necessita parcticionar o vetor principal,
- * decompondo-o em vetores menores
-*/
-void partition(int v[], int left, int right, int *pivo_pos, int pivo, struct counter *c);
+// Particionamento usando o primeiro elemento como pivo
+int partition_first_element(int arr[], int low, int high, struct counter *c);
+
+// Particionamento usando um elemento aleatório como pivo
+int partition_rand(int arr[], int low, int high, struct counter *c);
+
+// Particionamento usando a mediana de 3 elementos como pivo
+int partition_median(int arr[], int low, int high, struct counter *c);
 
 /* ALGORITMOS DE BUSCA */
 

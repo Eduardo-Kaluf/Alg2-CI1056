@@ -99,3 +99,19 @@ void found_element(int index) {
 int aleat() {
     return (rand() % 2047) + 1;
 }
+
+void swap(int* a, int* b) {
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+int median_of_three(int arr[], int a, int b, int c) {
+    if ((arr[a] > arr[b]) != (arr[a] > arr[c])) {
+        return a;
+    } else if ((arr[b] > arr[a]) != (arr[b] > arr[c])) {
+        return b;
+    } else {
+        return c;
+    }
+}

@@ -61,4 +61,10 @@ void found_element(int index);
 // Gera um número aleatório entre 0 e 2048
 int aleat();
 
+// Troca dois elementos de posição
+void swap(int* a, int* b);
+
+// Faz a mediana de 3 elementos
+int median_of_three(int arr[], int a, int b, int c);
+
 #endif

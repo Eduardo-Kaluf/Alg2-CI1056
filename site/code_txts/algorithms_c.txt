@@ -126,104 +126,97 @@ void shell_sort(int v[], int k, struct counter *c) {
     }
 }
 
-void first_element_qs(int v[], int left, int right, struct counter *c) {
-    int pivo_pos, pivo;
+int partition_first_element(int arr[], int low, int high, struct counter *c) {
+    int pivot = arr[low];
+    
+    int i = low;
 
-    if (left < right) {
-        pivo = v[left];
-        
-        partition(v, left, right, &pivo_pos, pivo, c);
-        first_element_qs(v, left, pivo_pos - 1, c);
-        first_element_qs(v, pivo_pos + 1, right, c);
-    }
-}
-
-void random_element_qs(int v[], int left, int right, struct counter *c) {
-    int pivo_pos, pivot_index, pivo, range;
-
-    if (left < right) {
-        range = right - left + 1;
-        pivot_index = (rand() % range) + left;
-
-        pivo = v[pivot_index];
-
-        // Move o pivo pra esquerda, para poder reutilizar a função de partição
-        // Essa troca não será considerada
-        int temp = v[left];
-        v[left] = v[pivot_index];
-        v[pivot_index] = temp;
-
-        partition(v, left, right, &pivo_pos, pivo, c);
-        random_element_qs(v, left, pivo_pos - 1, c);
-        random_element_qs(v, pivo_pos + 1, right, c);
-    }
-}
-
-void median_element_qs(int v[], int left, int right, struct counter *c) {
-    int pivo_pos, pivot_index, pivo, range, w[4];
-
-    if (left < right) {
-        range = right - left + 1;
-
-        for (int i = 1; i < 4; i++) {
-            w[i] = v[(rand() % range) + left];
-        }
-
-        generic_sort(w, 4);
-
-        pivo = w[2];
-
-        for (int i = left; i <= right; i++) {
-            if (v[i] == pivo) {
-                pivot_index = i;
-                break;
-            }   
-        }
-
-        // Move o pivo pra esquerda, para poder reutilizar a função de partição
-        // Essa troca não será considerada        
-        int temp = v[left];
-        v[left] = v[pivot_index];
-        v[pivot_index] = temp;
-
-        partition(v, left, right, &pivo_pos, pivo, c);
-        median_element_qs(v, left, pivo_pos - 1, c);
-        median_element_qs(v, pivo_pos + 1, right, c);
-    }
-}
-
-void partition(int v[], int left, int right, int *pivo_pos, int pivo, struct counter *c) {
-    int i, j, aux;
-
-    i = left;
-    j = right;
-
-    while (i < j) {
-
-        // DECIDI NÃO CONTAR O CASO EM QUE SAI DO WHILE
-        while ((v[i] <= pivo) && (i < right)) {
+    for (int j = low + 1; j <= high; j++) {
+        if (arr[j] < pivot) {
             c->comparisons++;
             i++;
-        }
-
-        // DECIDI NÃO CONTAR O CASO EM QUE SAI DO WHILE
-        while ((v[j] > pivo) && (j > left)) {
-            c->comparisons++;
-            j--;
-        }
-
-        if (i < j) {
             c->swap++;
-            aux = v[i];
-            v[i] = v[j];
-            v[j] = aux;
-        }        
+            swap(&arr[i], &arr[j]);
+        }
     }
-
+    
+    swap(&arr[low], &arr[i]);  
     c->swap++;
-    v[left] = v[j];
-    v[j] = pivo;
-    *pivo_pos = j;
+    return i;
+}
+
+int partition_rand(int arr[], int low, int high, struct counter *c) {
+    int random_index = low + rand() % (high - low + 1);
+    swap(&arr[low], &arr[random_index]);
+
+    int pivot = arr[low];
+    int i = low;
+
+    for (int j = low + 1; j <= high; j++) {
+        if (arr[j] < pivot) {
+            c->comparisons++;
+            i++;
+            c->swap++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    
+    swap(&arr[low], &arr[i]);  
+    c->swap++;
+    return i;
+}
+
+int partition_median(int arr[], int low, int high, struct counter *c) {
+    int rand1 = low + rand() % (high - low + 1);
+    int rand2 = low + rand() % (high - low + 1);
+    int rand3 = low + rand() % (high - low + 1);
+
+    int median_index = median_of_three(arr, rand1, rand2, rand3);
+
+    swap(&arr[low], &arr[median_index]);
+
+    int pivot = arr[low];
+    int i = low;
+
+    for (int j = low + 1; j <= high; j++) {
+        if (arr[j] < pivot) {
+            c->comparisons++;
+            i++;
+            c->swap++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    
+    swap(&arr[low], &arr[i]);  
+    c->swap++;
+    return i;
+}
+
+void first_element_qs(int v[], int low, int high, struct counter *c) {
+    if (low < high) {
+        int pi = partition_first_element(v, low, high, c);
+
+        first_element_qs(v, low, pi - 1, c);
+        first_element_qs(v, pi + 1, high, c);
+    }
+}
+
+void random_element_qs(int v[], int low, int high, struct counter *c) {
+    if (low < high) {
+        int pi = partition_rand(v, low, high, c);
+
+        random_element_qs(v, low, pi - 1, c);
+        random_element_qs(v, pi + 1, high, c);
+    }
+}
+
+void median_element_qs(int v[], int low, int high, struct counter *c) {
+    if (low < high) {
+        int pi = partition_median(v, low, high, c);
+
+        median_element_qs(v, low, pi - 1, c);
+        median_element_qs(v, pi + 1, high, c);
+    }
 }
 
 int linear_search(int v[], int key, struct counter *c) {
@@ -243,7 +236,6 @@ int binary_search(int v[], int key, int left, int right, struct counter *c) {
     int middle = (left + right) / 2;
 
     if (left > right) {
-        c->comparisons--;
         return 0;
     }
 

@@ -7,6 +7,8 @@
 </head>
 <body>
     
+    <p>TODOS OS CÓDIGOS ESTÃO DEVIDAMENTE DOCUMENTADOS NOS SEUS RESPECTIVOS .h</p>
+
     <a href="code_txts/main_c.txt">Main</a><br>
     <a href="code_txts/menu_h.txt">Menu.h</a><br>
     <a href="code_txts/menu_c.txt">Menu.c</a><br>
@@ -114,12 +116,11 @@
 
     
     <p>
-        &emsp;A implementação de tais algoritmos ocorreu de maneira concisa, e para este trabalho optei por não contar quando uma comparação da falso, isso pode ficar mais claro ao ver o código da “partition” e do “shell_sort”, pois ambos possuem duas condições de saída, sendo assim a contagem ficaria imprecisa. O modo de como cada um foi implementado não diferenciou de como foram passados em sala de aula, buscando manter o trabalho fidedigno com o que aprendemos.
-        Para todo o caso, o vetor possui o espaço “[0]” reservado ao sentinela, assim até os algoritmos que não o utilizam foram adaptados para suportar esse tipo especifico de vetor.<br>
-        &emsp;Um menu interativo para o usuário exibe as ações que podem ser tomadas dentro do programa, dando liberdade a testar de maneira livre e arbitraria. Uma das opções é um teste grande que exibirá a média de comparações e trocas de nossos algoritmos, que será utilizada como o nosso resultado final.
-        Ao ser testado, o programa sempre exibirá um log do que está fazendo, deixando o usuário a par de suas ações. Além disso, um arquivo de teste em conjunto ao seu log final também estará disponível
-        Optei por implementar primeiro os algoritmos em si, verificando se estavam operando de maneira correta, após ter certeza de que todos funcionavam, comecei a trabalhar no menu, tentando deixar a interação fácil de entender e prática.<br>
-        &emsp;Depois disso, modularizei o código e o tornou mais limpo criando algumas funções utilitárias, por fim, fiz a parte de testar 1000 vezes cada algoritmos, criando as funções que calculam a estatística e o teste em si.
+        &emsp;A implementação de tais algoritmos ocorreu de maneira concisa. O modo de como o shell foi foi implementado não diferenciou de como foi passado em sala de aula, buscando manter o trabalho fidedigno com o que aprendemos. Contudo, tentei utilizar o algoritmo de partição que foi mostrado em aula, mas ele se mostrou extremamente ineficiente, dessa forma, adaptei este algoritmo, simplificando-o e chegando em uma quantidade de trocas e comparações melhor. Para todo o caso, o vetor possui o espaço “[0]” reservado ao sentinela, assim até os algoritmos que não o utilizam foram adaptados para suportar esse tipo especifico de vetor.<br>
+        &emsp;Um menu interativo para o usuário exibe as ações que podem ser tomadas dentro do programa, dando liberdade a testar de maneira livre e arbitrária. Uma das opções é um teste grande que exibirá a média de comparações e trocas de nossos algoritmos, que será utilizada como o nosso resultado final.
+        Ao ser testado, o programa sempre exibirá um log do que está fazendo, deixando o usuário a par de suas ações. Além disso, um arquivo de teste em conjunto ao seu log final também estará disponível.<br>
+        &emsp;Optei por implementar primeiro os algoritmos em si, verificando se estavam operando de maneira correta, após ter certeza de que todos funcionavam, comecei a trabalhar no menu, tentando deixar a interação fácil de entender e prática.<br>
+        &emsp;Depois disso, modularizei o código e o tornei mais limpo criando algumas funções utilitárias, por fim, fiz a parte de testar 1000 vezes cada algoritmos, criando as funções que calculam a estatística e o teste em si.
     </p>
 
     <h2>
@@ -136,13 +137,13 @@
         5. Conclusão
     </h2>
     <p>
-        &emsp;Sendo assim, ao analisar os resultados obtidos com os testes feitos, podemos concluir que de fato o ShellSort é superior ao QuickSort, obtendo uma quantidade inferior de comparações. Apesar disso, o QuickSort sempre apresentou a quantidade de trocas e um desvio padrão menor em relação ao Shell.<br>
-        &emsp;Quanto aos métodos implementados, no QuickSort a diferença não foi muito gritante para as trocas, com todos tendo em média a mesma quantidade. Para as comparações, curiosamente, escolher o primeiro elemento do vetor se mostrou o método mais eficiente.br>
-        &emsp;Para o ShellSort, podemos observar que o método do próprio Shell se mostrou muito ineficiente, porém, quando olhamos para a sequencia de Sedgewick, ela tem a quantidade de comparações mais baixa, sendo um pouco melhor do que o método de Knuth neste contexto. Contudo, para as trocas,  Sedgewick foi superior. Independente de escolher o método de Sedgewick, ou a sequência de Knuth, eles sempre acabaram por dominar o QuickSort em questão de comparações.<br>
-        &emsp;Por fim, ao olharmos o BubbleSort, ele realizou em média 45 vezes mais comparações que o Quick e 60 vezes mais que o Shell. Já as trocas, foram 100 vezes mais que o Quick e 15 vezes mais que o Shell.<br>
-        &emsp;Quanto aos algoritmos de busca, como já era de se esperar, a busca binária é extremamente superior a busca sequencial, possuindo uma média de comparações 90 vezes menor.<br><br>
+        &emsp;Sendo assim, ao analisar os resultados obtidos com os testes feitos, podemos concluir que de fato o QuickSort é superior ao ShellSort, obtendo uma quantidade inferior de comparações. Apesar disso, o ShellSort apresentou um desvio padrão menor em relação ao Quick.<br>
+        &emsp;Quanto aos métodos implementados, no QuickSort a diferença não foi muito gritante quando escolhemos um elemento aleatório ou o primeiro elemento, com ambos tendo em média a mesma quantidade de trocas e comparações. Já quando escolhemos a mediana de 3 elementos aleatórios do vetor, a média de comparações e trocas caem mais de 500 unidades, afirmando ser disparado o melhor dos métodos selecionados<br>
+        &emsp;Para o ShellSort, podemos observar que o método do próprio Shell se mostrou muito ineficiente, porém, quando olhamos para a sequencia de Sedgewick, ela tem a média de comparações mais baixa, sendo melhor do que o método de Knuth neste contexto. Contudo, para as trocas, Knuth foi superior. Independente de escolher o método de Sedgewick, ou a sequência de Knuth, eles sempre acabaram sendo dominados pelo QuickSort em questão tanto de comparações quanto de trocas.<br>
+        &emsp;Por fim, ao olharmos o BubbleSort, ele realizou em média 100 vezes mais comparações que o Quick e 60 vezes mais que o Shell. Já as trocas, foram 50 vezes mais que o Quick e 15 vezes mais que o Shell.<br>
+        &emsp;Quanto aos algoritmos de busca, como já era de se esperar, a busca binária é extremamente superior a busca sequencial, possuindo uma média de comparações 80 vezes menor.<br><br>
     
-        &emsp;Portanto, ao juntar todos esses dados, podemos concluir seguramente, quando tomando a quantidade de comparações como fato dominante e dado a implementação utilizada no trabalho, que o ShellSort é mais eficiente que o QuickSort.
+        &emsp;Portanto, ao juntar todos esses dados, podemos concluir seguramente que o QuickSort é mais eficiente que o ShellSort, sendo superior tanto na quantidade de trocas quanto de comparações.
 
     </p>    
 
