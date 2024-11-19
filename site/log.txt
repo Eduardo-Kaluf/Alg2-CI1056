@@ -114,8 +114,8 @@ ESCOLHA O GAP
  --------------------------------------------------
 1
 ORDENANDO COM SHELL SORT, METODO ORIGINAL...
-NUMERO DE TROCAS: 26943
-NUMERO DE COMPARACOES: 16702
+NUMERO DE TROCAS: 26329
+NUMERO DE COMPARACOES: 26329
 [ 2, 4, 4, 
   5, 6, 6, 
   10, 12, 15, 
@@ -146,8 +146,8 @@ ESCOLHA O GAP
  --------------------------------------------------
 2
 ORDENANDO COM SHELL SORT, METODO SEDGEWICK...
-NUMERO DE TROCAS: 14915
-NUMERO DE COMPARACOES: 8142
+NUMERO DE TROCAS: 14894
+NUMERO DE COMPARACOES: 14894
 [ 2, 4, 4, 
   5, 6, 6, 
   10, 12, 15, 
@@ -201,8 +201,8 @@ ESCOLHA O PIVO
  --------------------------------------------------
 1
 ORDENANDO COM QUICK SORT, PIVO: PRIMEIRO ELEMENTO...
-NUMERO DE TROCAS: 5482
-NUMERO DE COMPARACOES: 4808
+NUMERO DE TROCAS: 4968
+NUMERO DE COMPARACOES: 10753
 [ 1, 1, 2, 
   3, 12, 12, 
   15, 23, 25, 
@@ -261,8 +261,8 @@ ESCOLHA O PIVO
  --------------------------------------------------
 3
 ORDENANDO COM QUICK SORT, PIVO: ELEMENTO MEDIANO...
-NUMERO DE TROCAS: 5771
-NUMERO DE COMPARACOES: 5104
+NUMERO DE TROCAS: 6187
+NUMERO DE COMPARACOES: 10256
 [ 1, 1, 2, 
   3, 12, 12, 
   15, 23, 25, 
@@ -385,17 +385,16 @@ NUMERO DE COMPARACOES: 10
 ESCOLHA SUA OPCAO: 
 7
 REALIZANDO O TESTE MIL VEZES...
-ANALISANDO 1000 VEZES CADA ALGORITMO
                 BubbleSort      FirstQs         RandQs          MedianQs        OriginalShell   SedgewickShell  KnuthShell      LinearSearch    BinarySearch    
 
-Comp            522836940.00    5507406.00      5525157.00      4876743.00      16921374.00     8236744.00      9034955.00      810806.00       9569.00         
-Trocas          261617955.00    6192484.00      6209998.00      5532864.00      27162374.00     15009744.00     14635955.00     0.00            0.00            
-Média Comp      522836.94       5507.41         5525.16         4876.74         16921.37        8236.74         9034.95         810.81          9.57            
-Média Trocas    261617.95       6192.48         6210.00         5532.86         27162.37        15009.74        14635.95        0.00            0.00            
-Var Comp        960769.61       353371.24       388040.49       155669.56       6864342.14      98028.38        199487.45       109735.21       1.13            
-Var Trocas      32748955.16     353325.81       388023.44       155986.72       6864342.14      98028.38        199487.45       0.00            0.00            
-DP Comp         980.19          594.45          622.93          394.55          2619.99         313.09          446.64          331.26          1.06            
-DP Trocas       5722.67         594.41          622.92          394.95          2619.99         313.09          446.64          0.00            0.00             
+Comp            522863454.00    11313426.00     11285178.00     10461844.00     27276313.00     15037037.00     14643907.00     816687.00       9528.00         
+Trocas          261973999.00    6225182.00      6189156.00      6207217.00      27276313.00     15037037.00     14643907.00     0.00            0.00            
+Média Comp      522863.45       11313.43        11285.18        10461.84        27276.31        15037.04        14643.91        816.69          9.53            
+Média Trocas    261974.00       6225.18         6189.16         6207.22         27276.31        15037.04        14643.91        0.00            0.00            
+Var Comp        782982.59       422338.85       369492.17       120251.77       7098428.50      100322.52       217227.25       100863.13       1.13            
+Var Trocas      29955002.60     364288.85       342019.56       163260.80       7098428.50      100322.52       217227.25       0.00            0.00            
+DP Comp         884.86          649.88          607.86          346.77          2664.29         316.74          466.08          317.59          1.06            
+DP Trocas       5473.12         603.56          584.82          404.06          2664.29         316.74          466.08          0.00            0.00 
  --------------------------------------------------
 |0 - Sair do programa                              |
 |1 - Criar novo vetor                              |

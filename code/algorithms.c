@@ -109,14 +109,14 @@ void shell_sort(int v[], int k, struct counter *c) {
         aux = v[i];
         j = i;
 
-        // DECIDI NÃO CONTAR O CASO QUE SAI DO WHILE
+        c->comparisons++;
         while (j > k && v[j - k] > aux ) {
-            c->comparisons++;
 
             v[j] = v[j - k];
             c->swap++;
 
             j = j - k;
+            c->comparisons++;
             if (j <= k)
                 break;
         }
@@ -132,8 +132,8 @@ int partition_first_element(int arr[], int low, int high, struct counter *c) {
     int i = low;
 
     for (int j = low + 1; j <= high; j++) {
+        c->comparisons++;
         if (arr[j] < pivot) {
-            c->comparisons++;
             i++;
             c->swap++;
             swap(&arr[i], &arr[j]);
@@ -153,8 +153,8 @@ int partition_rand(int arr[], int low, int high, struct counter *c) {
     int i = low;
 
     for (int j = low + 1; j <= high; j++) {
+        c->comparisons++;
         if (arr[j] < pivot) {
-            c->comparisons++;
             i++;
             c->swap++;
             swap(&arr[i], &arr[j]);
@@ -173,14 +173,16 @@ int partition_median(int arr[], int low, int high, struct counter *c) {
 
     int median_index = median_of_three(arr, rand1, rand2, rand3);
 
+    c->swap++;
+    c->comparisons++;
     swap(&arr[low], &arr[median_index]);
 
     int pivot = arr[low];
     int i = low;
 
     for (int j = low + 1; j <= high; j++) {
+        c->comparisons++;
         if (arr[j] < pivot) {
-            c->comparisons++;
             i++;
             c->swap++;
             swap(&arr[i], &arr[j]);
